@@ -1,0 +1,27 @@
+#chatContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+#chatLink {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    /* Menambahkan properti display: inline-block */
+    position: relative;
+    /* Menambahkan properti position: relative */
+}
+
+#chatLink span {
+    position: absolute;
+    top: 100%;
+    /* Mengubah nilai top menjadi 100% */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+body {
+    background-color: lightblue;
+}

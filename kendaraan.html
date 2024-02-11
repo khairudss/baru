@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tafsiran Pasar Gadai Indonesia</title>
+    <style>
+        /* General Style */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+            color: #444;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"],
+        input[type="number"],
+        input[type="color"] {
+            width: calc(100% - 24px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="color"]:focus {
+            outline: none;
+            border-color: #7b1fa2;
+        }
+
+        #hargaTafsiranLabel {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #installmentTable {
+            margin-top: 30px;
+        }
+
+        #installmentTable h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        /* Logo Chat */
+        #chatLink {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: #7b1fa2;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #chatLogo {
+            width: 50px;
+            height: auto;
+        }
+
+        #chatLink:hover {
+            opacity: 0.8;
+        }
+
+        /* Links */
+        a {
+            color: #7b1fa2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #4a148c;
+        }
+
+        a:active {
+            color: #4a148c;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
+        }
+
+        .cta-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2b9781;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #9CAF88;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="home.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
+    <div class="container">
+        <h1>TAFSIRAN PASAR GADAI</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Jenis Kendaraan</th>
+                    <th>Tahun Kendaraan</th>
+                    <th>Bunga Per Bulan</th>
+                    <th>Harga Tafsiran (Rp)</th>
+                    <th>Jumlah Bulan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select id="jenisKendaraan">
+                            <option value="">Pilih Jenis Kendaraan</option>
+
+                            <option value="">Pilih Jenis Kendaraan</option>
+                            <optgroup label="Honda">
+                                <option value="Honda Scoopy">Honda Scoopy</option>
+                                <option value="Honda Beat">Honda Beat</option>
+                                <option value="Honda Vario">Honda Vario</option>
+                                <option value="Honda PCX">Honda PCX</option>
+                                <option value="Honda CBR">Honda CBR</option>
+                                <option value="Honda CB">Honda CB</option>
+                                <option value="Honda Supra">Honda Supra</option>
+                                <option value="Honda Revo">Honda Revo</option>
+                                <option value="Honda Sonic">Honda Sonic</option>
+                                <option value="Honda ADV">Honda ADV</option>
+                                <option value="Honda Goldwing">Honda Goldwing</option>
+                                <option value="Honda Mega Pro">Honda Mega Pro</option>
+                                <option value="Honda Verza">Honda Verza</option>
+                                <option value="Honda CRF">Honda CRF</option>
+                                <option value="Honda Forza">Honda Forza</option>
+                                <option value="Honda CBR250RR">Honda CBR250RR</option>
+                                <option value="Honda CB150R">Honda CB150R</option>
+                                <option value="Honda CBR150R">Honda CBR150R</option>
+                                <option value="Honda ADV150">Honda ADV150</option>
+                                <option value="Honda CRF150L">Honda CRF150L</option>
+                            </optgroup>
+                            <optgroup label="Yamaha">
+                                <option value="Yamaha NMAX">Yamaha NMAX</option>
+                                <option value="Yamaha Aerox">Yamaha Aerox</option>
+                                <option value="Yamaha R15">Yamaha R15</option>
+                                <option value="Yamaha R25">Yamaha R25</option>
+                                <option value="Yamaha MT-15">Yamaha MT-15</option>
+                                <option value="Yamaha MT-25">Yamaha MT-25</option>
+                                <option value="Yamaha XMAX">Yamaha XMAX</option>
+                                <option value="Yamaha Lexi">Yamaha Lexi</option>
+                                <option value="Yamaha Fino">Yamaha Fino</option>
+                                <option value="Yamaha Mio">Yamaha Mio</option>
+                                <option value="Yamaha Jupiter">Yamaha Jupiter</option>
+                                <option value="Yamaha Vixion">Yamaha Vixion</option>
+                                <option value="Yamaha Raptor">Yamaha Raptor</option>
+                                <option value="Yamaha WR">Yamaha WR</option>
+                                <option value="Yamaha X-Ride">Yamaha X-Ride</option>
+                                <option value="Yamaha R6">Yamaha R6</option>
+                                <option value="Yamaha R3">Yamaha R3</option>
+                                <option value="Yamaha R1">Yamaha R1</option>
+                                <option value="Yamaha Tracer">Yamaha Tracer</option>
+                                <option value="Yamaha Tenere">Yamaha Tenere</option>
+                                <option value="Yamaha MT-03">Yamaha MT-03</option>
+                                <option value="Yamaha XTZ">Yamaha XTZ</option>
+                                <option value="Yamaha WR155R">Yamaha WR155R</option>
+                                <option value="Yamaha WR250R">Yamaha WR250R</option>
+                            </optgroup>
+                            <optgroup label="Suzuki">
+                                <option value="Suzuki Address">Suzuki Address</option>
+                                <option value="Suzuki Skywave">Suzuki Skywave</option>
+                                <option value="Suzuki Satria">Suzuki Satria</option>
+                                <option value="Suzuki GSX">Suzuki GSX</option>
+                                <option value="Suzuki Nex">Suzuki Nex</option>
+                                <option value="Suzuki Gixxer">Suzuki Gixxer</option>
+                                <option value="Suzuki Burgman">Suzuki Burgman</option>
+                                <option value="Suzuki Smash">Suzuki Smash</option>
+                                <option value="Suzuki Shooter">Suzuki Shooter</option>
+                                <option value="Suzuki V-Strom">Suzuki V-Strom</option>
+                                <option value="Suzuki Hayate">Suzuki Hayate</option>
+                                <option value="Suzuki Axelo">Suzuki Axelo</option>
+                                <option value="Suzuki Thunder">Suzuki Thunder</option>
+                                <option value="Suzuki Bandit">Suzuki Bandit</option>
+                                <option value="Suzuki Intruder">Suzuki Intruder</option>
+                                <option value="Suzuki Boulevard M109R">Suzuki Boulevard M109R</option>
+                                <option value="Suzuki Boulevard M50">Suzuki Boulevard M50</option>
+                                <option value="Suzuki Address Play">Suzuki Address Play</option>
+                                <option value="Suzuki Address Matik">Suzuki Address Matik</option>
+                                <option value="Suzuki Address Scooter">Suzuki Address Scooter</option>
+                                <option value="Suzuki Address Street">Suzuki Address Street</option>
+                                <option value="Suzuki Nex II">Suzuki Nex II</option>
+                                <option value="Suzuki Nex Neo">Suzuki Nex Neo</option>
+                                <option value="Suzuki Hayate Street">Suzuki Hayate Street</option>
+                                <option value="Suzuki Hayate Neo">Suzuki Hayate Neo</option>
+                                <option value="Suzuki Hayate Mini">Suzuki Hayate Mini</option>
+                                <option value="Suzuki Hayate EP">Suzuki Hayate EP</option>
+                                <option value="Suzuki Satria F150">Suzuki Satria F150</option>
+                                <option value="Suzuki Satria FU">Suzuki Satria FU</option>
+                                <!-- Pilihan Suzuki lainnya ditambahkan di sini -->
+                            </optgroup>
+                            <optgroup label="Kawasaki">
+                                <option value="Kawasaki Ninja">Kawasaki Ninja</option>
+                                <option value="Kawasaki Versys">Kawasaki Versys</option>
+                                <option value="Kawasaki Z">Kawasaki Z</option>
+                                <option value="Kawasaki W">Kawasaki W</option>
+                                <option value="Kawasaki D-Tracker">Kawasaki D-Tracker</option>
+                                <option value="Kawasaki KLX">Kawasaki KLX</option>
+                                <option value="Kawasaki Vulcan">Kawasaki Vulcan</option>
+                                <option value="Kawasaki ER">Kawasaki ER</option>
+                                <option value="Kawasaki Ninja H2">Kawasaki Ninja H2</option>
+                                <option value="Kawasaki Ninja ZX">Kawasaki Ninja ZX</option>
+                                <option value="Kawasaki Z125">Kawasaki Z125</option>
+                                <option value="Kawasaki W175">Kawasaki W175</option>
+                                <option value="Kawasaki Z250">Kawasaki Z250</option>
+                                <option value="Kawasaki Z650">Kawasaki Z650</option>
+                                <!-- Pilihan Kawasaki lainnya ditambahkan di sini -->
+                            </optgroup>
+                            <optgroup label="Lainnya">
+                                <option value="Lainnya">Lainnya</option>
+                            </optgroup>
+                            <!-- Options for Vehicle Types -->
+                        </select>
+                    </td>
+                    <td>
+                        <select id="merekHp">
+                            <option value="">Pilih Tahun</option>
+                            <option value="">Pilih Tahun</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <!-- Options for Vehicle Years -->
+                        </select>
+                    </td>
+                    <td>
+                        <select id="ram">
+                            <option value="1.5%">1.5%</option>
+                            <option value="2%">2%</option>
+                            <option value="2.5%">2.5%</option>
+                        </select>
+                    </td>
+                    <td><input type="number" id="hargaTafsiran"></td>
+                    <td><input type="number" id="jumlahBulan"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div id="hargaTafsiranLabel">Harga Tafsiran: <span id="hargaTafsiranText"></span></div>
+
+        <div id="installmentTable"></div>
+    </div>
+
+    <!-- Chat Logo Link -->
+    <a href="https://wa.me/6285171232402" id="chatLink">
+        <img src="WhatsApp-logo-500x281.png" alt="Chat Logo" id="chatLogo">
+    </a>
+
+    <script>
+        document.getElementById('jumlahBulan').addEventListener('keyup', function (event) {
+            if (event.keyCode === 13) { // Deteksi tombol Enter (keyCode 13)
+                calculateInstallment(parseInt(document.getElementById('hargaTafsiran').value));
+            }
+        });
+
+        // Menambahkan event listener ke elemen select untuk nilai bunga
+        document.getElementById('ram').addEventListener('change', function () {
+            var hargaTafsiran = parseInt(document.getElementById('hargaTafsiran').value);
+            calculateInstallment(hargaTafsiran);
+        });
+
+        document.getElementById('jenisKendaraan').addEventListener('change', function () {
+            var merekHp = document.getElementById('merekHp');
+            // Reset nilai pilihan merek kendaraan saat jenis kendaraan berubah
+            merekHp.value = '';
+            if (this.value === 'Lainnya') {
+                merekHp.setAttribute('disabled', 'true');
+                merekHp.value = '';
+            } else {
+                merekHp.removeAttribute('disabled');
+            }
+        });
+
+        document.getElementById('merekHp').addEventListener('change', function () {
+            if (this.value === 'Lainnya') {
+                var customType = prompt('Masukkan jenis kendaraan lainnya:');
+                if (customType !== null && customType !== '') {
+                    this.innerHTML += '<option value="' + customType + '">' + customType + '</option>';
+                    this.value = customType;
+                }
+            }
+        });
+
+        document.getElementById('hargaTafsiran').addEventListener('input', function () {
+            var hargaTafsiran = parseInt(this.value);
+            document.getElementById('hargaTafsiranText').innerText = formatRupiah(hargaTafsiran);
+            calculateInstallment(hargaTafsiran);
+        });
+
+        document.getElementById('jumlahBulan').addEventListener('input', function () {
+            var hargaTafsiran = parseInt(document.getElementById('hargaTafsiran').value);
+            calculateInstallment(hargaTafsiran);
+        });
+
+        function calculateInstallment(hargaTafsiran) {
+            var installmentTable = document.getElementById('installmentTable');
+            var jumlahBulan = parseInt(document.getElementById('jumlahBulan').value);
+            var bunga = parseFloat(document.getElementById('ram').value) / 100; // Ambil bunga dari input RAM
+            var bungaDecimal = bunga; // Mengonversi persentase bunga menjadi desimal
+            var installmentHTML = '<h3>Angsuran</h3><table><thead><tr><th>Bulan</th><th>Angsuran (Rp)</th></tr></thead><tbody>';
+
+            for (var i = 1; i <= jumlahBulan; i++) {
+                var totalBunga = bungaDecimal * hargaTafsiran * jumlahBulan; // Menghitung total bunga
+                var totalHarga = hargaTafsiran + totalBunga; // Menambahkan total bunga ke harga tafsiran
+                var angsuran = totalHarga / jumlahBulan; // Menghitung angsuran per bulan
+                installmentHTML += '<tr><td>' + i + '</td><td>' + formatRupiah(angsuran.toFixed(2)) + '</td></tr>';
+            }
+
+            installmentHTML += '</tbody></table>';
+            installmentTable.innerHTML = installmentHTML;
+        }
+
+        function formatRupiah(angka) {
+            var number_string = angka.toString(),
+                sisa = number_string.length % 3,
+                rupiah = number_string.substr(0, sisa),
+                ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            return 'Rp ' + rupiah;
+        }
+        // Script JavaScript
+    </script>
+
+    <footer>
+        <p>Hak Cipta &copy; Developed By Khairil Rudi</p>
+    </footer>
+</body>
+
+</html>

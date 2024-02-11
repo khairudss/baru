@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persyaratan Gadai BPKB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: block;
+            margin-bottom: 20px;
+            text-align: right;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Tombol kembali -->
+        <a class="back-button" href="home.html">Kembali</a>
+
+        <!-- Persyaratan gadai BPKB -->
+        <h2>Persyaratan Gadai BPKB</h2>
+        <p>1. KTP fotocopy</p>
+        <p>2. KK fotocopy</p>
+        <p>3. Akte Nikah/Cerai fotocopy</p>
+        <p>4. Rekening koran</p>
+        <p>5. Rekening air/listrik</p>
+
+        <!-- Tombol upload foto STNK -->
+        <h3>Upload Foto STNK Anda</h3>
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="foto_stnk">Upload Foto STNK:</label>
+            <input type="file" id="foto_stnk" name="foto_stnk"><br>
+            <input type="submit" value="Upload Foto">
+        </form>
+    </div>
+
+</body>
+
+</html>

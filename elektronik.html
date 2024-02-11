@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tafsiran Pasar Gadai Indonesia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            padding: 10px;
+            /* Increased padding for better readability */
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        select,
+        input[type="text"],
+        input[type="number"],
+        input[type="color"] {
+            width: calc(100% - 20px);
+            /* Adjusted width to accommodate increased padding */
+            padding: 10px;
+            /* Increased padding for better appearance */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        select:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="color"]:focus {
+            outline: none;
+            border-color: #7b1fa2;
+        }
+
+        #hargaTafsiranLabel {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+            padding: 10px;
+            /* Increased padding for better appearance */
+        }
+
+        #installmentTable {
+            margin-top: 30px;
+            padding: 10px;
+            /* Increased padding for better appearance */
+        }
+
+        #installmentTable h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        #installmentTable td {
+            padding-top: 10px;
+        }
+
+        #chatContainer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            text-align: center;
+        }
+
+        #chatLink {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #chatLogo {
+            width: 50px;
+            height: auto;
+        }
+
+        #chatLink:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .cta-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2b9781;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            background-color: #9CAF88;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="home.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
+
+    <h2>TAFSIRAN PASAR GADAI</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama HP</th>
+                <th>Merek HP</th>
+                <th>RAM</th>
+                <th>Harga Tafsiran (Rp)</th>
+                <th>Jumlah Bulan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" id="namaHp" placeholder="Nama HP" oninput="setMerek()">
+                </td>
+                <td>
+                    <select id="merekHp">
+                        <option value="">Pilih Merek</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Samsung">Samsung</option>
+                        <option value="Oppo">Oppo</option>
+                        <option value="Infinix">Infinix</option>
+                        <option value="Huawei">Huawei</option>
+                        <option value="Xiaomi">Xiaomi</option>
+                        <option value="Realme">Realme</option>
+                        <option value="Asus">Asus</option>
+                        <option value="Vivo">Vivo</option>
+                        <option value="Lenovo">Lenovo</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="ram">
+                        <option value="4/32">4/32</option>
+                        <option value="4/64">4/64</option>
+                        <option value="4/128">4/128</option>
+                        <option value="6/128">6/128</option>
+                        <option value="6/256">6/256</option>
+                        <option value="6/512">6/512</option>
+                        <option value="8/128">8/128</option>
+                        <option value="8/256">8/256</option>
+                        <option value="8/512">8/512</option>
+                    </select>
+                </td>
+                <td><input type="number" id="hargaTafsiran"></td>
+                <td><input type="number" id="jumlahBulan"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="hargaTafsiranLabel">Harga Tafsiran: <span id="hargaTafsiranText"></span></div>
+    <div id="installmentTable"></div>
+
+    <div id="chatContainer">
+        <a href="https://wa.me/6285171232402" id="chatLink">
+            <img src="WhatsApp-logo-500x281.png" alt="WhatsApp Logo" id="chatLogo" style="width: 50px; height: auto;">
+        </a>
+    </div>
+
+    <script>
+        function setMerek() {
+            var namaHpInput = document.getElementById('namaHp').value;
+            var merekHp = document.getElementById('merekHp');
+
+            // Pisahkan kata pertama dari nama HP
+            var kataPertama = namaHpInput.split(' ')[0].toLowerCase();
+
+            switch (kataPertama.toLowerCase()) {
+                case 'iphone':
+                    merekHp.value = 'Apple';
+                    break;
+                case 'vivo':
+                    merekHp.value = 'Vivo';
+                    break;
+                case 'lenovo':
+                    merekHp.value = 'Lenovo';
+                    break;
+                case 'assus':
+                    merekHp.value = 'Assus';
+                    break;
+                case 'galaxy':
+                    merekHp.value = 'Samsung';
+                    break;
+                case 'samsung':
+                    merekHp.value = 'Samsung';
+                    break;
+                case 'oppo':
+                    merekHp.value = 'Oppo';
+                    break;
+                case 'infinix':
+                    merekHp.value = 'Infinix';
+                    break;
+                case 'huawei':
+                    merekHp.value = 'Huawei';
+                    break;
+                case 'xiaomi':
+                    merekHp.value = 'Xiaomi';
+                    break;
+                case 'realme':
+                    merekHp.value = 'Realme';
+                    break;
+                case 'asus':
+                    merekHp.value = 'Asus';
+                    break;
+                case 'vivo':
+                    merekHp.value = 'Vivo';
+                    break;
+                case 'lenovo':
+                    merekHp.value = 'Lenovo';
+                    break;
+                default:
+                    merekHp.value = '';
+            }
+        }
+
+        document.getElementById('hargaTafsiran').addEventListener('input', function () {
+            var hargaTafsiran = parseInt(this.value);
+            document.getElementById('hargaTafsiranText').innerText = formatRupiah(hargaTafsiran);
+            calculateInstallment(hargaTafsiran);
+        });
+
+        document.getElementById('jumlahBulan').addEventListener('input', function () {
+            var hargaTafsiran = parseInt(document.getElementById('hargaTafsiran').value);
+            calculateInstallment(hargaTafsiran);
+        });
+
+        function calculateInstallment(hargaTafsiran) {
+            var installmentTable = document.getElementById('installmentTable');
+            var jumlahBulan = parseInt(document.getElementById('jumlahBulan').value);
+            var bunga = 8.8; // Persentase bunga dalam persen
+            var bungaDecimal = bunga / 100; // Mengonversi persentase bunga menjadi desimal
+            var installmentHTML = '<h3>Angsuran</h3><table><thead><tr><th>Bulan</th><th>Angsuran (Rp)</th></tr></thead><tbody>';
+
+            for (var i = 1; i <= jumlahBulan; i++) {
+                var totalBunga = bungaDecimal * hargaTafsiran * jumlahBulan; // Menghitung total bunga
+                var totalHarga = hargaTafsiran + totalBunga; // Menambahkan total bunga ke harga tafsiran
+                var angsuran = totalHarga / jumlahBulan; // Menghitung angsuran per bulan
+                installmentHTML += '<tr><td>' + i + '</td><td>' + formatRupiah(angsuran.toFixed(2)) + '</td></tr>';
+            }
+
+            installmentHTML += '</tbody></table>';
+            installmentTable.innerHTML = installmentHTML;
+        }
+
+
+        function formatRupiah(angka) {
+            var number_string = angka.toString(),
+                sisa = number_string.length % 3,
+                rupiah = number_string.substr(0, sisa),
+                ribuan = number_string.substr(sisa).match(/\d{3}/g);
+
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            return 'Rp ' + rupiah;
+        }
+        // JavaScript Code Here
+    </script>
+    <footer>
+        <p>Hak Cipta &copy; Developed By Khairil Rudi</p>
+    </footer>
+</body>
+
+</html>
