@@ -138,13 +138,13 @@
         }
 
         .cta-link:hover {
-            background-color: #9CAF88;
+            background-color: #4f5845;
         }
     </style>
 </head>
 
 <body>
-    <a href="index.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
+    <a href="home.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
     <div class="container">
         <h1>TAFSIRAN PASAR GADAI</h1>
 
@@ -161,10 +161,9 @@
             <tbody>
                 <tr>
                     <td>
-                        <select id="jenisKendaraan">
-                            <option value="">Pilih Jenis Kendaraan</option>
 
-                            <option value="">Pilih Jenis Kendaraan</option>
+                        <select id="jenisKendaraan">
+
                             <optgroup label="Honda">
                                 <option value="Honda Scoopy">Honda Scoopy</option>
                                 <option value="Honda Beat">Honda Beat</option>
@@ -265,13 +264,14 @@
                             <optgroup label="Lainnya">
                                 <option value="Lainnya">Lainnya</option>
                             </optgroup>
-                            <!-- Options for Vehicle Types -->
                         </select>
+                        <input type="text" id="jenisKendaraanManual" style="display: none;"
+                            placeholder="Masukkan Jenis Kendaraan Lainnya">
                     </td>
                     <td>
                         <select id="merekHp">
                             <option value="">Pilih Tahun</option>
-                            <option value="">Pilih Tahun</option>
+
                             <option value="2023">2023</option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
@@ -288,21 +288,80 @@
                             <option value="2.5%">2.5%</option>
                         </select>
                     </td>
-                    <td><input type="number" id="hargaTafsiran"></td>
-                    <td><input type="number" id="jumlahBulan"></td>
+                    <td><input type="number" id="hargaTafsiran" min="0" step="100000" value="0"></td>
+                    <td><input type="number" id="jumlahBulan" min="1" max="120" step="1" value="12"></td>
                 </tr>
             </tbody>
         </table>
 
-        <div id="hargaTafsiranLabel">Harga Tafsiran: <span id="hargaTafsiranText"></span></div>
+        <label id="hargaTafsiranLabel">Harga Tafsiran: <span id="hargaTafsiranText">Harga Tafsiran</span></label>
 
         <div id="installmentTable"></div>
+
     </div>
 
     <!-- Chat Logo Link -->
     <a href="https://wa.me/6285171232402" id="chatLink">
         <img src="WhatsApp-logo-500x281.png" alt="Chat Logo" id="chatLogo">
     </a>
+
+    <script>
+        document.getElementById('jenisKendaraan').addEventListener('change', function () {
+            var jenisKendaraan = document.getElementById('jenisKendaraan');
+            var jenisKendaraanManualInput = document.getElementById('jenisKendaraanManual');
+
+            if (jenisKendaraan.value === 'Lainnya') {
+                jenisKendaraanManualInput.style.display = 'inline-block'; // Tampilkan input manual
+                jenisKendaraanManualInput.focus(); // Fokuskan input manual
+            } else {
+                jenisKendaraanManualInput.style.display = 'none'; // Sembunyikan input manual
+            }
+        });
+
+        // Event listener untuk menangani ketika tombol "Enter" ditekan pada input manual
+        document.getElementById('jenisKendaraanManual').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                var jenisKendaraan = document.getElementById('jenisKendaraan');
+                var jenisKendaraanManualInput = document.getElementById('jenisKendaraanManual');
+                var selectedValue = jenisKendaraanManualInput.value.trim();
+
+                if (selectedValue !== '') {
+                    // Ubah nilai select dengan nilai input manual
+                    jenisKendaraan.innerHTML += '<option value="' + selectedValue + '">' + selectedValue + '</option>';
+                    jenisKendaraan.value = selectedValue;
+
+                    // Sembunyikan input manual
+                    jenisKendaraanManualInput.style.display = 'none';
+                }
+            }
+        });
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                var parentRow = event.target.closest('tr');
+                var selectElement = parentRow.querySelector('.selectOption');
+                var inputField = event.target;
+                var inputValue = inputField.value.trim();
+
+                if (inputValue !== '') {
+                    // Add the new option to the select element
+                    var newOption = document.createElement('option');
+                    newOption.value = inputValue;
+                    newOption.text = inputValue;
+                    selectElement.add(newOption);
+
+                    // Select the new option
+                    selectElement.value = inputValue;
+
+                    // Reset input field and hide it
+                    inputField.value = '';
+                    inputField.style.display = 'none';
+
+                    // Dispatch change event to trigger updateTable function
+                    selectElement.dispatchEvent(new Event('change'));
+                }
+            }
+        }
+    </script>
 
     <script>
         document.getElementById('jumlahBulan').addEventListener('keyup', function (event) {
@@ -321,11 +380,11 @@
             var merekHp = document.getElementById('merekHp');
             // Reset nilai pilihan merek kendaraan saat jenis kendaraan berubah
             merekHp.value = '';
-            if (this.value === 'Lainnya') {
+            if (this.value === '') {
                 merekHp.setAttribute('disabled', 'true');
                 merekHp.value = '';
             } else {
-                merekHp.removeAttribute('disabled');
+                merekHp.removeAttribute('disable');
             }
         });
 
@@ -382,7 +441,9 @@
             return 'Rp ' + rupiah;
         }
         // Script JavaScript
+
     </script>
+
 
     <footer>
         <p>Hak Cipta &copy; Developed By Khairil Rudi</p>
