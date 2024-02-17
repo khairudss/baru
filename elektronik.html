@@ -6,6 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tafsiran Pasar Gadai Indonesia</title>
     <style>
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header,
+        nav,
+        main,
+        footer {
+            padding: 20px;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            background: #666;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+
+            header,
+            nav,
+            main,
+            footer {
+                padding: 10px;
+            }
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f8f8;
@@ -138,7 +203,7 @@
 
 <body>
 
-    <a href="index.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
+    <a href="home.html" class="cta-link">Klik Untuk Ke Halaman Utama</a>
 
     <h2>TAFSIRAN PASAR GADAI</h2>
     <table>
@@ -154,6 +219,9 @@
         <tbody>
             <tr>
                 <td>
+                    <select>
+                        <option value="Masukan Nama Hp">Masukan Nama Hp</option>
+                    </select>
                     <input type="text" id="namaHp" placeholder="Nama HP" oninput="setMerek()">
                 </td>
                 <td>
