@@ -266,7 +266,22 @@
             <img src="WhatsApp-logo-500x281.png" alt="WhatsApp Logo" id="chatLogo" style="width: 50px; height: auto;">
         </a>
     </div>
+<script>
+        // Function to detect if the user is on a mobile device
+        function isMobileDevice() {
+            return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+        }
 
+        // Function to display alert if user is on a mobile device
+        function showAlertIfMobile() {
+            if (isMobileDevice()) {
+                alert("Silakan buka mode desktop untuk pengalaman terbaik.");
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = showAlertIfMobile;
+    </script>
     <script>
         function setMerek() {
             var namaHpInput = document.getElementById('namaHp').value;
